@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<input v-model="new_todo_value" @keyup.enter="add_todo" placeholder="輸入待辦事項" />
+		<input v-model="new_todo" @keyup.enter="add_todo" placeholder="輸入待辦事項" />
 		<button class="btn-add" @click="add_todo">新增</button>
 		<ul>
 			<li 
@@ -19,13 +19,13 @@
 <script setup>
 import { ref, reactive } from "vue";
 
-const new_todo_value = ref("");
+const new_todo = ref("");
 const todo_list = reactive([]);
 
 const add_todo = () => {
-	if (new_todo_value.value.trim() !== "") {
-		todo_list.push(new_todo_value.value.trim());
-		new_todo_value.value = "";
+	if (new_todo.value.trim() !== "") {
+		todo_list.push(new_todo.value.trim());
+		new_todo.value = "";
 	}
 };
 
